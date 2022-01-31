@@ -36,6 +36,7 @@ class App extends React.Component {
 		this.state = {};
 	}
 
+	page = 10;
 	render() {
 		return (
 			<>
@@ -48,7 +49,7 @@ class App extends React.Component {
 							element={
 								<News
 									key="genral"
-									size={5}
+									size={this.page}
 									coun="in"
 									category="general"
 									Head="Top-Headline"
@@ -61,7 +62,7 @@ class App extends React.Component {
 							element={
 								<News
 									key="sports"
-									size={5}
+									size={this.page}
 									coun="in"
 									category="sports"
 									Head="Sports"
@@ -74,7 +75,7 @@ class App extends React.Component {
 							element={
 								<News
 									key="tec"
-									size={5}
+									size={this.page}
 									coun="in"
 									category="technology"
 									Head="Technology"
@@ -87,7 +88,7 @@ class App extends React.Component {
 							element={
 								<News
 									key="science"
-									size={5}
+									size={this.page}
 									coun="in"
 									category="science"
 									Head="Science"
@@ -100,7 +101,7 @@ class App extends React.Component {
 							element={
 								<News
 									key="ent"
-									size={5}
+									size={this.page}
 									coun="in"
 									category="entertainment"
 									Head="Entertainment"
@@ -113,7 +114,7 @@ class App extends React.Component {
 							element={
 								<News
 									key="Health"
-									size={5}
+									size={this.page}
 									coun="in"
 									category="health"
 									Head="Health"
@@ -125,7 +126,7 @@ class App extends React.Component {
 							path="/Business"
 							element={
 								<News
-									size={5}
+									size={this.page}
 									key="business"
 									coun="in"
 									category="business"

@@ -27,7 +27,11 @@ export class News extends Component {
 		};
 	}
 	async componentDidMount() {
-		let url = `https://newsapi.org/v2/top-headlines?country=${this.props.coun}&category=${this.props.category}&apiKey=f8de4d0e255040ef8f3cc5eca889f09e&page=1&pagesize=${this.props.size}`;
+		this.updatenews();
+	}
+
+	async updatenews(pageno) {
+		const url = `https://newsapi.org/v2/top-headlines?country=${this.props.coun}&category=${this.props.category}&apiKey=f8de4d0e255040ef8f3cc5eca889f09e&page=${this.state.page}&pagesize=${this.props.size}`;
 		this.setState({ loading: true });
 		let data = await fetch(url);
 
@@ -40,55 +44,17 @@ export class News extends Component {
 		});
 	}
 	handleNext = async () => {
-		if (
-			!(
-				this.state.page + 1 >
-				Math.ceil(this.state.totalResults / this.props.size)
-			)
-		) {
-			let url = `https://newsapi.org/v2/top-headlines?country=${
-				this.props.coun
-			}&category=${
-				this.props.category
-			}&apiKey=f8de4d0e255040ef8f3cc5eca889f09e&page=${
-				this.state.page + 1
-			}&pagesize=${this.props.size}`;
-			this.setState({ loading: true });
-			let data = await fetch(url);
-
-			let freshdata = await data.json();
-
-			this.setState({
-				page: this.state.page + 1,
-				article: freshdata.articles,
-				loading: false,
-			});
-		}
+		this.setState({ page: this.state.page + 1 });
+		this.updatenews();
 	};
 	handlePervious = async () => {
-		let url = `https://newsapi.org/v2/top-headlines?country=${
-			this.props.coun
-		}&category=${
-			this.props.category
-		}&apiKey=f8de4d0e255040ef8f3cc5eca889f09e&page=${
-			this.state.page - 1
-		}&pagesize=${this.props.size}`;
-		this.setState({ loading: true });
-		let data = await fetch(url);
-
-		let freshdata = await data.json();
-
-		this.setState({
-			page: this.state.page - 1,
-			article: freshdata.articles,
-			loading: false,
-		});
+		this.setState({ page: this.state.page - 1 });
+		this.updatenews();
 	};
 	render() {
 		let { size, coun, Head } = this.props;
 		return (
 			<>
-				{console.log("this is", Head, this.props.category)}
 				<div className="container my-3 ">
 					<h1 className="text-center text-light bg-dark ">
 						{!this.state.loading && this.props.Head}
@@ -113,6 +79,8 @@ export class News extends Component {
 											}
 											newsUrl={element.url ? element.url : "  "}
 											published={element.publishedAt}
+											author={element.author ? "by " + element.author : ""}
+											source={element.source.name}
 										/>
 									</div>
 								);
