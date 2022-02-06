@@ -25,7 +25,7 @@ export class Navbar extends Component {
 
 					<div className="collapse navbar-collapse" id="navbarSupportedContent">
 						<ul className="navbar-nav mr-auto">
-							<li className="nav-item active">
+							<li className="nav-item ">
 								<Link className="nav-link" to="/">
 									Top-Headlines
 								</Link>
@@ -64,6 +64,21 @@ export class Navbar extends Component {
 							</li>
 						</ul>
 					</div>
+					{/* <div className="form-check form-switch text-light">
+						<input
+							className="form-check-input"
+							type="checkbox"
+							role="switch"
+							id="flexSwitchCheckDefault"
+							// onClick={props.togglemode}
+						/>
+						<label
+							className="form-check-label"
+							htmlFor="flexSwitchCheckDefault"
+						>
+						enable
+						</label>
+					</div> */}
 				</nav>
 			</div>
 		);

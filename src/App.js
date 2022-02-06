@@ -36,7 +36,7 @@ class App extends React.Component {
 		this.state = {};
 	}
 
-	page = 10;
+	page = 6;
 	render() {
 		return (
 			<>
