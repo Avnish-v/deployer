@@ -8,7 +8,7 @@ import {
 	Routes, // Just Use Routes instead of "Switch"
 	Route,
 } from "react-router-dom";
-
+import LoadingBar from "react-top-loading-bar";
 // #region constants
 
 // #endregion
@@ -35,12 +35,18 @@ class App extends React.Component {
 
 		this.state = {};
 	}
-
+	state = {
+		progress: 0,
+	};
 	page = 6;
+	setprogress = progress => {
+		this.setState({ progress: progress });
+	};
 	render() {
 		return (
 			<>
 				<Router>
+					<LoadingBar color="white" height={3} progress={this.state.progress} />
 					<Navbar />
 					<Routes>
 						<Route
@@ -48,6 +54,7 @@ class App extends React.Component {
 							path="/"
 							element={
 								<News
+									set={this.setprogress}
 									key="genral"
 									size={this.page}
 									coun="in"
@@ -61,6 +68,7 @@ class App extends React.Component {
 							path="/Sports"
 							element={
 								<News
+									set={this.setprogress}
 									key="sports"
 									size={this.page}
 									coun="in"
@@ -74,6 +82,7 @@ class App extends React.Component {
 							path="/Technology"
 							element={
 								<News
+									set={this.setprogress}
 									key="tec"
 									size={this.page}
 									coun="in"
@@ -87,6 +96,7 @@ class App extends React.Component {
 							path="/Science"
 							element={
 								<News
+									set={this.setprogress}
 									key="science"
 									size={this.page}
 									coun="in"
@@ -100,6 +110,7 @@ class App extends React.Component {
 							path="/Entertainment"
 							element={
 								<News
+									set={this.setprogress}
 									key="ent"
 									size={this.page}
 									coun="in"
@@ -113,6 +124,7 @@ class App extends React.Component {
 							path="/Health"
 							element={
 								<News
+									set={this.setprogress}
 									key="Health"
 									size={this.page}
 									coun="in"
@@ -126,6 +138,7 @@ class App extends React.Component {
 							path="/Business"
 							element={
 								<News
+									set={this.setprogress}
 									size={this.page}
 									key="business"
 									coun="in"

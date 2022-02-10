@@ -42,17 +42,21 @@ export class News extends Component {
 	}
 
 	async updatenews(pageno) {
+		this.props.set(10);
 		const url = `https://newsapi.org/v2/top-headlines?country=${this.props.coun}&category=${this.props.category}&apiKey=f8de4d0e255040ef8f3cc5eca889f09e&page=${this.state.page}&pagesize=${this.props.size}`;
 		this.setState({ loading: true });
 		let data = await fetch(url);
+		this.props.set(30);
 
 		let freshdata = await data.json();
+		this.props.set(70);
 
 		this.setState({
 			article: freshdata.articles,
 			totalResults: freshdata.totalResults,
 			loading: false,
 		});
+		this.props.set(100);
 	}
 	// handleNext = async () => {
 
@@ -78,7 +82,7 @@ export class News extends Component {
 		});
 	};
 	render() {
-		let { size, coun, Head } = this.props;
+		let { size, coun, Head, set } = this.props;
 		return (
 			<>
 				<div className="container my-3 ">
@@ -95,28 +99,30 @@ export class News extends Component {
 						hasMore={this.state.article.length !== this.state.totalResults}
 						loader={<Loading />}
 					>
-						<div className="row">
-							{this.state.article.map(element => {
-								return (
-									<div className="col-md-4" key={element.url}>
-										<NewsItem
-											title={element.title ? element.title : "  "}
-											description={
-												element.description ? element.description : " "
-											}
-											imgUrl={
-												element.urlToImage
-													? element.urlToImage
-													: "https://c.ndtvimg.com/2020-09/9kaghpsg_maharashtra-coronavirus-afp-650_625x300_05_September_20.jpg"
-											}
-											newsUrl={element.url ? element.url : "  "}
-											published={element.publishedAt}
-											author={element.author ? "by " + element.author : ""}
-											source={element.source.name}
-										/>
-									</div>
-								);
-							})}
+						<div className="container">
+							<div className="row">
+								{this.state.article.map(element => {
+									return (
+										<div className="col-md-4" key={element.url}>
+											<NewsItem
+												title={element.title ? element.title : "  "}
+												description={
+													element.description ? element.description : " "
+												}
+												imgUrl={
+													element.urlToImage
+														? element.urlToImage
+														: "https://c.ndtvimg.com/2020-09/9kaghpsg_maharashtra-coronavirus-afp-650_625x300_05_September_20.jpg"
+												}
+												newsUrl={element.url ? element.url : "  "}
+												published={element.publishedAt}
+												author={element.author ? "by " + element.author : ""}
+												source={element.source.name}
+											/>
+										</div>
+									);
+								})}
+							</div>
 						</div>
 					</InfiniteScroll>
 				</div>

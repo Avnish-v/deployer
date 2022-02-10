@@ -6,7 +6,7 @@ export class Navbar extends Component {
 
 	render() {
 		return (
-			<div>
+			<>
 				<nav className="navbar navbar-expand-lg navbar-dark bg-dark">
 					<Link className="navbar-brand" to="/">
 						NEWS-MONKEY
@@ -64,23 +64,8 @@ export class Navbar extends Component {
 							</li>
 						</ul>
 					</div>
-					{/* <div className="form-check form-switch text-light">
-						<input
-							className="form-check-input"
-							type="checkbox"
-							role="switch"
-							id="flexSwitchCheckDefault"
-							// onClick={props.togglemode}
-						/>
-						<label
-							className="form-check-label"
-							htmlFor="flexSwitchCheckDefault"
-						>
-						enable
-						</label>
-					</div> */}
 				</nav>
-			</div>
+			</>
 		);
 	}
 }
