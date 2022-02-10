@@ -9,6 +9,7 @@ import {
 	Route,
 } from "react-router-dom";
 import LoadingBar from "react-top-loading-bar";
+
 // #region constants
 
 // #endregion
@@ -30,6 +31,7 @@ import LoadingBar from "react-top-loading-bar";
  *
  */
 class App extends React.Component {
+	api = process.env.react_app_news_api;
 	constructor(props) {
 		super(props);
 
@@ -54,6 +56,7 @@ class App extends React.Component {
 							path="/"
 							element={
 								<News
+									api={this.api}
 									set={this.setprogress}
 									key="genral"
 									size={this.page}
@@ -68,6 +71,7 @@ class App extends React.Component {
 							path="/Sports"
 							element={
 								<News
+									api={this.api}
 									set={this.setprogress}
 									key="sports"
 									size={this.page}
@@ -82,6 +86,7 @@ class App extends React.Component {
 							path="/Technology"
 							element={
 								<News
+									api={this.api}
 									set={this.setprogress}
 									key="tec"
 									size={this.page}
@@ -96,6 +101,7 @@ class App extends React.Component {
 							path="/Science"
 							element={
 								<News
+									api={this.api}
 									set={this.setprogress}
 									key="science"
 									size={this.page}
@@ -110,6 +116,7 @@ class App extends React.Component {
 							path="/Entertainment"
 							element={
 								<News
+									api={this.api}
 									set={this.setprogress}
 									key="ent"
 									size={this.page}
@@ -124,6 +131,7 @@ class App extends React.Component {
 							path="/Health"
 							element={
 								<News
+									api={this.api}
 									set={this.setprogress}
 									key="Health"
 									size={this.page}
@@ -138,6 +146,7 @@ class App extends React.Component {
 							path="/Business"
 							element={
 								<News
+									api={this.api}
 									set={this.setprogress}
 									size={this.page}
 									key="business"
