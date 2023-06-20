@@ -1,0 +1,11 @@
+{
+  "files": {
+    "main.js": "/deployer/static/js/main.cb59cf8c.js",
+    "static/media/spinner.gif": "/deployer/static/media/spinner.ece48b522b0fd1593554.gif",
+    "index.html": "/deployer/index.html",
+    "main.cb59cf8c.js.map": "/deployer/static/js/main.cb59cf8c.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.cb59cf8c.js"
+  ]
+}
