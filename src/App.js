@@ -39,14 +39,14 @@ const App = props => {
 
 	return (
 		<>
-			<Router>
+			<Router basename="/deployer/">
 				<LoadingBar color="white" height={4} progress={progress} />
 				<Navbar />
 
 				<Routes>
 					<Route
 						exact
-						path="/"
+						path="/deployer/"
 						element={
 							<News
 								api={apikey}
