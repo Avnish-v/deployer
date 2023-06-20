@@ -1,11 +1,11 @@
 {
   "files": {
-    "main.js": "/deployer/static/js/main.88b0b5de.js",
+    "main.js": "/deployer/static/js/main.744b65aa.js",
     "static/media/spinner.gif": "/deployer/static/media/spinner.ece48b522b0fd1593554.gif",
     "index.html": "/deployer/index.html",
-    "main.88b0b5de.js.map": "/deployer/static/js/main.88b0b5de.js.map"
+    "main.744b65aa.js.map": "/deployer/static/js/main.744b65aa.js.map"
   },
   "entrypoints": [
-    "static/js/main.88b0b5de.js"
+    "static/js/main.744b65aa.js"
   ]
 }
