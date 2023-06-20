@@ -32,7 +32,7 @@ import LoadingBar from "react-top-loading-bar";
  *
  */
 const App = props => {
-	var apikey = process.env.React_App_Api;
+	var apikey = process.env.React_App_Api || "f8de4d0e255040ef8f3cc5eca889f09e";
 
 	var [progress, setprogress] = useState(0);
 	var page = 6;
